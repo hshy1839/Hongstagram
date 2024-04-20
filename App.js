@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Profile from './components/Profile';
 import DirectMessage from './components/DirectMessage';
+import DMstatus from './components/DMstatus';
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -21,7 +22,8 @@ export default function App() {
         <Stack.Screen name="Main" component={Main} options={{header: () => <Header />,}} />
         <Stack.Screen name="Profile" component={Profile} options={{header: () => <Header />,}} />
         <Stack.Screen name="Footer" component={Footer} options={{ headerShown: false }} /> 
-        <Stack.Screen name="DirectMessage" component={DirectMessage} options={{header: () => <Header />,}} />
+        <Stack.Screen name="DMstatus" component={DMstatus} options={{header: () => <Header />,}} />
+        <Stack.Screen name="DirectMessage" component={DirectMessage} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

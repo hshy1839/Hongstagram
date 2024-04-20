@@ -5,11 +5,24 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 
 const Header = () => {
   const navigation = useNavigation();
-  const goToDM = () => {
-    navigation.navigate('DirectMessage');
+  const route = useRoute();
+
+  const goBack = () => {
+    navigation.goBack();
   };
+
+  const goToDM = () => {
+    navigation.navigate('DMstatus');
+  };
+
   return (
     <View style={styles.header}>
+      {/* Main 페이지가 아닐 때 뒤로가기 버튼 렌더링 */}
+      {route.name !== 'Main' && (
+        <TouchableOpacity style={styles.backButton} onPress={goBack}>
+          <Ionicons name="arrow-back" size={27} color="white" />
+        </TouchableOpacity>
+      )}
       <Text style={styles.headerTitle}>Hongstagram</Text>
       <View style={styles.iconsContainer}>
         <TouchableOpacity style={styles.icon}>
@@ -44,6 +57,10 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginRight: 15,
+  },
+  backButton: {
+    marginTop:20,
+    marginRight: -70,
   },
 });
 
